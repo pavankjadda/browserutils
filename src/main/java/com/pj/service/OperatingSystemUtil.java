@@ -17,12 +17,17 @@ public class OperatingSystemUtil {
     /**
      * Gets browser Operating System name from the {@link HttpServletRequest}
      *
+     * @param userAgent User Agent of the request
+     *
+     * @return OS Name from the User Agent
+     *
      * @author Pavan Kumar Jadda
      * @since 1.0.0
      */
     public static String getOperatingSystemName(String userAgent) {
         String osType = Labels.UNKNOWN;
-        if (userAgent.contains(Labels.WINDOWS_NT)) {
+        if(userAgent == null || userAgent.isBlank()) return null;
+        else if (userAgent.contains(Labels.WINDOWS_NT)) {
             osType = Labels.WINDOWS;
         } else if (userAgent.contains(Labels.MAC_OS)) {
             osType = Labels.MAC_OS;
@@ -42,12 +47,17 @@ public class OperatingSystemUtil {
     /**
      * Gets browser Operating System name from the {@link HttpServletRequest}
      *
+     * @param userAgent User Agent of the request
+     *
+     * @return OS Version from the User Agent
+     *
      * @author Pavan Kumar Jadda
      * @since 1.0.0
      */
     public static String getOperatingSystemVersion(String userAgent) {
         String osVersion = Labels.UNKNOWN;
-        if (userAgent.contains(Labels.WINDOWS_NT)) {
+        if(userAgent == null || userAgent.isBlank()) return null;
+        else if (userAgent.contains(Labels.WINDOWS_NT)) {
             osVersion = userAgent.substring(userAgent.indexOf(Labels.WINDOWS_NT + " ") + 11, userAgent.indexOf(";"));
         } else if (userAgent.contains(Labels.MAC_OS)) {
             osVersion = userAgent.substring(userAgent.indexOf(Labels.MAC_OS + " ") + 7, userAgent.indexOf(")"));

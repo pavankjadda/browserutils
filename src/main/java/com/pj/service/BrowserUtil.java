@@ -19,11 +19,16 @@ public class BrowserUtil {
     /**
      * Gets Browser Name from the {@link HttpServletRequest}
      *
+     * @param userAgent User Agent of the request
+     *
+     * @return Browser Name from the User Agent
+     *
      * @author Pavan Kumar Jadda
      * @since 1.0.0
      */
     public static String getBrowserName(String userAgent) {
-        if (userAgent.contains(Labels.TRIDENT) || userAgent.contains(Labels.MSIE))
+        if(userAgent == null || userAgent.isBlank()) return null;
+        else if (userAgent.contains(Labels.TRIDENT) || userAgent.contains(Labels.MSIE))
             return BrowserNames.INTERNET_EXPLORER.toString();
         else if (userAgent.contains(Labels.EDG) && !userAgent.contains(Labels.EDGE) && userAgent.contains(Labels.CHROME))
             return BrowserNames.MICROSOFT_EDGE_CHROMIUM.toString();
@@ -42,13 +47,18 @@ public class BrowserUtil {
     /**
      * Gets Browser Version from the {@link HttpServletRequest}
      *
+     * @param userAgent User Agent of the request
+     *
+     * @return Browser version from the User Agent
+     *
      * @author Pavan Kumar Jadda
      * @since 1.0.0
      */
     public static String getBrowserVersion(String userAgent) {
         String browserVersion = Labels.UNKNOWN;
 
-        if (userAgent.contains(Labels.TRIDENT) || userAgent.contains(Labels.MSIE))
+        if(userAgent == null || userAgent.isBlank()) return null;
+        else if (userAgent.contains(Labels.TRIDENT) || userAgent.contains(Labels.MSIE))
             browserVersion = userAgent.substring(userAgent.indexOf(Labels.TRIDENT)).split("/")[1];
 
         else if (userAgent.contains(Labels.EDG) && !userAgent.contains(Labels.EDGE) && userAgent.contains(Labels.CHROME))
