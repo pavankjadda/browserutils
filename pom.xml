@@ -6,7 +6,7 @@
 
   <groupId>com.pj</groupId>
   <artifactId>browserutils</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
 
   <name>BrowserUtils</name>
   <url>https://github.com/pavankjadda/browserutils</url>
