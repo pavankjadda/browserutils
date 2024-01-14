@@ -54,7 +54,7 @@ public class OperatingSystemUtil {
         } else if (userAgent.contains("X11")) {
             osVersion = "Unknown";
         } else if (userAgent.contains("android")) {
-            osVersion = Labels.UNKNOWN;
+            return osVersion;
         }
         return osVersion;
     }
