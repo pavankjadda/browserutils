@@ -1,8 +1,7 @@
 package com.pj.service;
 
-import com.pj.constants.Labels;
 import com.pj.constants.BrowserNames;
-
+import com.pj.constants.Labels;
 import jakarta.servlet.http.HttpServletRequest;
 
 /**
@@ -55,7 +54,7 @@ public class BrowserUtil {
      * @since 1.0.0
      */
     public static String getBrowserVersion(String userAgent) {
-        String browserVersion = Labels.UNKNOWN;
+        var browserVersion = Labels.UNKNOWN;
 
         if(userAgent == null || userAgent.isBlank()) return null;
         else if (userAgent.contains(Labels.TRIDENT) || userAgent.contains(Labels.MSIE))

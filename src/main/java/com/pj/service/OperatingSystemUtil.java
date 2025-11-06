@@ -25,7 +25,7 @@ public class OperatingSystemUtil {
      * @since 1.0.0
      */
     public static String getOperatingSystemName(String userAgent) {
-        String osType = Labels.UNKNOWN;
+        var osType = Labels.UNKNOWN;
         if(userAgent == null || userAgent.isBlank()) return null;
         else if (userAgent.contains(Labels.WINDOWS_NT)) {
             osType = Labels.WINDOWS;
@@ -55,7 +55,7 @@ public class OperatingSystemUtil {
      * @since 1.0.0
      */
     public static String getOperatingSystemVersion(String userAgent) {
-        String osVersion = Labels.UNKNOWN;
+        var osVersion = Labels.UNKNOWN;
         if(userAgent == null || userAgent.isBlank()) return null;
         else if (userAgent.contains(Labels.WINDOWS_NT)) {
             osVersion = userAgent.substring(userAgent.indexOf(Labels.WINDOWS_NT + " ") + 11, userAgent.indexOf(";"));
